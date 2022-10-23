@@ -5,11 +5,11 @@ public class ExTwelve {
 //    Найти среднее арифметическое всех элементов массива.
     public static void arithmeticMean(int[] arr){
         int sumOfElements=0;
-        int arithmeticMean=0;
-        for (int i = 0; i < arr.length;i++ ) {
-            sumOfElements+=arr[i];
+        int arithmeticMean;
+        for (int j : arr) {
+            sumOfElements += j;
         }
         arithmeticMean=sumOfElements/arr.length;
-        System.out.print(arithmeticMean);
+        System.out.println("Arithmetic mean array elements "+arithmeticMean);
     }
 }

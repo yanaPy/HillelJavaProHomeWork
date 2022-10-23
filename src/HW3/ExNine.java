@@ -2,19 +2,22 @@ package HW3;
 
 public class ExNine {
 
-    /** Дан массив размерности N, найти наименьший элемент массива и вывести на консоль
-    (если наименьших элементов несколько — вывести их все).**/
-    public static void findMinArrayElement(int[] arr){
+    /**
+     * Дан массив размерности N, найти наименьший элемент массива и вывести на консоль
+     * (если наименьших элементов несколько — вывести их все).
+     **/
+    public static int findMinArrayElement(int[] arr){
         int min = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i]<min){
-                min=arr[i];
+        for (int k : arr) {
+            if (k < min) {
+                min = k;
             }
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i]==min){
-                System.out.println(min);
+        for (int j : arr) {
+            if (j == min) {
+                System.out.println("\n" + "Min element of array " + min);
             }
         }
+        return min;
     }
 }

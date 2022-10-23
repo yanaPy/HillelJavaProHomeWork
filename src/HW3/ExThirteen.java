@@ -1,6 +1,5 @@
 package HW3;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class ExThirteen {
@@ -9,18 +8,14 @@ public class ExThirteen {
     public static void printChessboard(){
         Character[][] arr=new Character[8][8];
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[0].length; j++) {
-                if(i%2==0){
+            for (int j = 0; j < arr[i].length; j++) {
+                if((double)(i+j)%2==0){
                 arr[i][j]= 'W';
                 } else {
                     arr[i][j]= 'B';
                 }
-                System.out.println(arr[i][j]);
-
             }
-
-
+            System.out.println(Arrays.deepToString(arr[i]));
         }
-        System.out.print(arr);
     }
 }

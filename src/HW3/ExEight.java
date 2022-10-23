@@ -1,7 +1,5 @@
 package HW3;
 
-import java.util.Arrays;
-
 public class ExEight {
 
 /**     Создайте массив, содержащий 10 первых нечетных чисел. Выведете элементы массива на консоль в одну строку,
@@ -12,13 +10,18 @@ public class ExEight {
         for ( i = 0, x=1; i < arr.length; i++,x++) {
             if (x%2!=0){
                 arr[i]=x;
-                System.out.print(arr[i]+", ");
+                System.out.print(arr[i]);
+                if(i < arr.length - 1){
+                    System.out.print(", ");
+                }
             }else {
                 x++;
                 arr[i]=x;
-                System.out.print(arr[i]+", ");
+                System.out.print(arr[i]);
+                if(i < arr.length - 1){
+                    System.out.print(", ");
+                }
             }
         }
-        System.out.print(Arrays.toString(arr));
     }
 }

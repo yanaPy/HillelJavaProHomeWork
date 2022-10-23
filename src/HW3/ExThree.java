@@ -2,7 +2,7 @@ package HW3;
 
 public class ExThree {
 
-    //    Перепишите программы с использованием цикла while.
+//    Перепишите программы с использованием цикла while.
     public static void printOddNums(){
         int i= 1;
         while (i!=100){
