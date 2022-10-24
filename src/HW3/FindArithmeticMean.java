@@ -1,6 +1,6 @@
 package HW3;
 
-public class ExTwelve {
+public class FindArithmeticMean {
 
 //    Найти среднее арифметическое всех элементов массива.
     public static void arithmeticMean(int[] arr){

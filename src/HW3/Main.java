@@ -10,8 +10,8 @@ public class Main {
         while (true) {
 
             System.out.println("Choose number of exercise to show work:");
-            System.out.println("1 - Print odd numbers from 1 to 99 on the screen.(Ex 1.)");
-            System.out.println("2 - Calc n!(Ex 2.)");
+            System.out.println("1 - Print odd numbers from 1 to 99 on the screen.(Ex 1)");
+            System.out.println("2 - Calc n!(Ex 2)");
             System.out.println("3 - With while.(Ex 3)");
             System.out.println("4 - With do - while (Ex 4)");
             System.out.println("5 - Calc x^n. (Ex 5)");
@@ -28,42 +28,43 @@ public class Main {
             int choice = input.nextInt();
 
             if (choice == 1) {
-                ExOne.printOddNums();
+                PrintOddNumbs.printOddNumbs();
             } else if (choice == 2) {
                 System.out.println("Enter n for calc factorial");
                 int n = input.nextInt();
-                ExTwo.calcFactorial(n);
+                CalcFactorial.calcFactorial(n);
             } else if (choice == 3) {
-                ExThree.printOddNums();
+                PrintOddNumbs.printOddNumbsUsingWhile();
                 System.out.println("Enter n for calc factorial");
                 int n = input.nextInt();
-                ExThree.calcFactorial(n);
+                CalcFactorial.calcFactorialUsingWhile(n);
             } else if (choice == 4) {
-                ExFour.printOddNums();
+                PrintOddNumbs.printOddNumbsUsingDoWhile();
+                System.out.println("Enter n for calc factorial");
+                int n = input.nextInt();
+                CalcFactorial.calcFactorialUsingDoWhile(n);
             } else if (choice == 5) {
                 System.out.println("Enter x for calc x^n");
                 int x = input.nextInt();
                 System.out.println("Enter n for calc x^n");
                 int n = input.nextInt();
-                ExFive.calcDegree(x, n);
+                CalcDegree.calcDegree(x, n);
             } else if (choice == 6) {
-                ExSix.printFirstNumsOfSequence();
+                PrintFirstNumbsOfSequence.printFirstNumbsOfSequence();
             } else if (choice == 7) {
                 System.out.println("Enter N for print multiply table for N");
                 int n = input.nextInt();
-                ExSeven.multiplyTable(n);
+                PrintMultiplyTable.multiplyTable(n);
             } else if (choice == 8) {
-                ExEight.arrayOddNums();
+                PrintOddNumbs.arrayOddNums();
             } else if (choice == 9) {
                 System.out.println("Enter array size");
                 int n = input.nextInt();
                 int[] arr = createArray(n);
-//                ExNine.findMinArrayElement(arr);
-//                ExTen.findMaxArrayElement(arr);
-                ExEleven.swapElementsOfArray(arr);
-                ExTwelve.arithmeticMean(arr);
+                SwapElementsOfArray.swapElementsOfArray(arr);
+                FindArithmeticMean.arithmeticMean(arr);
             } else if (choice == 10) {
-                ExThirteen.printChessboard();
+                PrintChessboard.printChessboard();
             } else if (choice == 11) {
                 break;
             } else {

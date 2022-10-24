@@ -1,8 +1,6 @@
 package HW3;
 
-import java.util.Arrays;
-
-public class ExSeven {
+public class PrintMultiplyTable {
 
 //    Необходимо вывести на экран таблицу умножения на Х: (любое число вводимое из консоли)
     public static void multiplyTable( int x){

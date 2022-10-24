@@ -2,7 +2,7 @@ package HW3;
 
 import java.util.Arrays;
 
-public class ExThirteen {
+public class PrintChessboard {
 
 //(*)Вывести на экран шахматную доску 8х8 в виде 2 мерного массива (W - белые клетки , B - черные клети)
     public static void printChessboard(){
