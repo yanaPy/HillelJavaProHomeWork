@@ -6,10 +6,10 @@ public class Car {
     private double fuelConsumptionPerHundredKm = 0.14;
 
     //    залить полный бак с учетом объема остатка
-    public void fillFullTank(int fuelСost) {
+    public void fillFullTank(int fuelCost) {
         int sumToFull = tankVolume - restInTank;
         restInTank += sumToFull;
-        int costForFillTank=fuelСost*sumToFull;
+        int costForFillTank=fuelCost*sumToFull;
         System.out.println("The tank was filled with " + sumToFull + " liters of fuel. Tank is full.");
         System.out.println("Cost for fill tank " + costForFillTank + " UAH");
 
