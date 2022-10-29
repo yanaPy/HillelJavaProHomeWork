@@ -2,20 +2,58 @@ package HW5;
 
 public class Student {
 
-    int id;
-    String surname;
-    String name;
-    String patronymic;
-    String yearBirth;
-    String address;
-    String phone;
-    String faculty;
-    String course;
-    String group;
+    private int id;
+    private String surname;
+    private String name;
+    private String patronymic;
+    private String yearBirth;
+    private String address;
+    private String phone;
+    private String faculty;
+    private String course;
+    private String group;
+
+    public Student(int id, String surname, String name, String patronymic, String yearBirth, String address,
+                   String phone, String faculty, String course, String group) {
+        this.id = id;
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.yearBirth = yearBirth;
+        this.address = address;
+        this.phone = phone;
+        this.faculty = faculty;
+        this.course = course;
+        this.group = group;
+    }
+
+    public Student(int id, String surname, String name, String yearBirth, String address,
+                   String phone, String faculty, String course, String group) {
+        this.id = id;
+        this.surname = surname;
+        this.name = name;
+        this.yearBirth = yearBirth;
+        this.address = address;
+        this.phone = phone;
+        this.faculty = faculty;
+        this.course = course;
+        this.group = group;
+    }
+
+    public Student(int id, String surname, String name, String yearBirth, String faculty, String course, String group) {
+        this.id = id;
+        this.surname = surname;
+        this.name = name;
+        this.yearBirth = yearBirth;
+        this.faculty = faculty;
+        this.course = course;
+        this.group = group;
+    }
+
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "\nStudent{" +
                 "id=" + id +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
