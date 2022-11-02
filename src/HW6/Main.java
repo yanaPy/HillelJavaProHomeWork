@@ -7,23 +7,23 @@ public class Main {
     public static void main(String[] args) {
 
         SubscriberServiceImpl service = new SubscriberServiceImpl();
-
-        service.setSubscriber(new Subscriber(1, "Ivanov", "Ivan", "Ivanovich", "Dnipro",
-                "+380603423456","NUM001",130.5,2678,2345,
-                256));
-        service.setSubscriber(new Subscriber(2, "Ivanova", "Ivanna", "Ivanovna", "Dnipro",
-                "+380343423456","NUM002",456.5,6678,7345,
-                8856));
-        service.setSubscriber(new Subscriber(3, "Kuznezov", "Ivan", "Ivanovich", "Dnipro",
-                "+380673423000","NUM003",-4221.5,8678,0,
-                9000));
-        service.setSubscriber(new Subscriber(4, "Kuznezova", "Ivanna", "Ivanovna", "Kyiv",
-                "+380673423000","NUM004",456221.5,0,5678,
-                50));
-        service.setSubscriber(new Subscriber(5, "Zavernoe", "Zlata", "Ivanovna", "Kyiv",
-                "+380223423000","NUM005",-12.3,0,0,
-                100));
-
+        Subscriber[] subscribers = {
+                new Subscriber(1, "Ivanov", "Ivan", "Ivanovich", "Dnipro",
+                        "+380603423456", "NUM001", 130.5, 2678, 2345,
+                        256),
+                new Subscriber(2, "Ivanova", "Ivanna", "Ivanovna", "Dnipro",
+                "+380343423456", "NUM002", 456.5, 6678, 7345,
+                8856),
+                new Subscriber(3, "Kuznezov", "Ivan", "Ivanovich", "Dnipro",
+                "+380673423000", "NUM003", -4221.5, 8678, 0,
+                9000),
+                new Subscriber(4, "Kuznezova", "Ivanna", "Ivanovna", "Kyiv",
+                "+380673423000", "NUM004", 456221.5, 0, 5678,
+                50),
+                new Subscriber(5, "Zavernoe", "Zlata", "Ivanovna", "Kyiv",
+                "+380223423000", "NUM005", -12.3, 0, 0,
+                100)
+        };
 
         while (true) {
             System.out.println("Choose number for print :");
@@ -43,19 +43,19 @@ public class Main {
             if (choice == 1) {
                 System.out.println("Enter time ");
                 double time = input.nextDouble();
-                service.subsInfoCityTimeCallsExceedsSpecified(time);
+                service.subsInfoCityTimeCallsExceedsSpecified(subscribers, time);
             } else if (choice == 2) {
-                service.subsInfoWhoUsedLongDistanceCommunication();
+                service.subsInfoWhoUsedLongDistanceCommunication(subscribers);
             } else if (choice == 3) {
                 System.out.println("Enter first letter of the surname ");
                 String letter = input.nextLine();
-                service.subsInfo(letter);
+                service.subsInfo(subscribers,letter);
             } else if (choice == 4) {
-                service.numberSubsWithNegativeBalance();
+                service.numberSubsWithNegativeBalance(subscribers);
             } else if (choice == 5) {
                 System.out.println("Enter city ");
                 String city = input.nextLine();
-                service.totalConsumptionInetTrafficForCity(city);
+                service.totalConsumptionInetTrafficForCity(subscribers, city);
             } else if (choice == 6) {
                 break;
             } else {
