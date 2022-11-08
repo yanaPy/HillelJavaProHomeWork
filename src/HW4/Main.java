@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int fuelCost = Integer.valueOf(args[0]);
+        int fuelСost = Integer.valueOf(args[0]);
 
-        int odessaToKyivKm = 454;
+        int odessaToKyivKm = 959;
         int odessaToKrivoyeOzero = 179;
         int krivoyeOzeroToZhashkov = 153;
         int zhashkovToKyiv = 148;
@@ -17,10 +17,10 @@ public class Main {
         car.go(odessaToKyivKm,"Kyiv");
 
         System.out.println("Estimated  cost per trip Odessa-Kiev " +
-                String.format("%.2f",fuelCost * (car.getFuelConsumptionPerHundredKm() * odessaToKyivKm)) + " UAH");
+                String.format("%.2f",fuelСost * (car.getFuelConsumptionPerHundredKm() * odessaToKyivKm)) + " UAH");
 
         System.out.println("-----------");
-        car.fillFullTank(fuelCost);
+        car.fillFullTank(fuelСost);
         System.out.println("-----------");
 
         car.go(odessaToKrivoyeOzero,"Krivoye ozero");
@@ -32,7 +32,7 @@ public class Main {
         car.go(zhashkovToKyiv,"Kyiv");
         System.out.println("-----------");
 
-        car.fillFullTank(fuelCost);
+        car.fillFullTank(fuelСost);
 
         System.out.println("-----------");
 

@@ -1,58 +1,94 @@
 package HW7;
 
+
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
 public class Collection {
 
+    String[] array;
+
+    private int modCount = 0;
+
+    public Collection(String[] array) {
+        this.array = array;
+    }
+
     //    1. boolean add(int index, String value);
-    public boolean add(String[] arr, int index, String value) {
-        if (rangeCheckForAdd(arr, index) == true) {
-            arr = new String[index+1];
-            arr[index] = value;
-//        add(index, value);
+    public boolean add(int index, String value) {
+        modCount++;
+        String[] newArray = new String[array.length + 1];
+        if (index > array.length) {
+            System.out.println("Array size: " + array.length + " but you want to add " + index + " element");
+            return false;
+        } else {
+            for (int i = 0, j = 0; i < array.length; i++, j++) {
+                if (i == index) {
+                    newArray[j] = value;
+                    j++;
+                }
+                newArray[j] = array[i];
+            }
+        }
+        array = newArray;
+        return true;
+    }
+
+
+    //2. boolean add(String value);
+    public boolean add(String value) {
+        modCount++;
+        String[] newArray = new String[array.length + 1];
+
+        for (int i = 0, j = 0; i < newArray.length; i++, j++) {
+            if (i != newArray.length - 1) {
+                newArray[j] = array[i];
+            } else {
+                newArray[newArray.length - 1] = value;
+            }
+        }
+        array = newArray;
+        return true;
+    }
+
+    //    3. boolean delete(int index);
+    public boolean delete(int index) {
+        modCount++;
+        String[] newArray = new String[array.length - 1];
+        if (index >= array.length) {
+            System.out.println("Array size: " + array.length + " but you want to delete " + index + " element");
+            return false;
+        } else {
+            for (int i = 0, j = 0; i < newArray.length; i++, j++) {
+                if (i == index) {
+                    i++;
+                }
+                newArray[j] = array[i];
+            }
+        }
+        array = newArray;
+        return true;
+    }
+
+    //4. boolean delete(String value);
+    public boolean delete(String value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i]==value) {
+                array[i] = null;
+            }
         }
         return true;
     }
 
-//    private void add(String[] arr, int index, String value) {
-//        if (s == elementData.length)
-//            elementData = grow();
-//        elementData[s] = e;
-//        size = s + 1;
-//    }
-
-//    //2. boolean add(String value);
-//    public boolean add(String[] arr,String value) {
-//        if (rangeCheckForAdd(arr,);)
-//        checkForComodification();
-//        root.add(offset + index, element);
-//        updateSizeAndModCount(1);
-//        add(value);
-//        return true;
-//    }
-
-    //3. boolean delete(int index);
-//    public boolean delete(int index) {
-////        Objects.checkIndex(index, size);
-////        final Object[] es = elementData;
-////
-////        @SuppressWarnings("unchecked") E oldValue = (E) es[index];
-////        fastRemove(es, index);
-////
-//        return get();
-    //   }
-
-    //4. boolean delete(String value);
-//5. String get(int index);
-    public static String get(String[] arr, int index) {
-//            Objects.checkIndex(index, size);
-//            return elementData(index);
-
-        return arr[index];
+    //5. String get(int index);
+    public String get(int index) {
+        return array[index];
     }
 
-    private boolean rangeCheckForAdd(String[] arr, int index) {
-        if (index > arr.length || index < 0) {
-            System.out.println("Index: " + index + ", Size: " + arr.length);
-            return true;
-        } else return false;
+    @Override
+    public String toString() {
+        return "Collection{" +
+                "array=" + Arrays.toString(array) +
+                '}';
     }
 }
