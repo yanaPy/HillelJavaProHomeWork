@@ -1,7 +1,5 @@
 package HW7;
 
-
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Collection {
@@ -73,7 +71,7 @@ public class Collection {
     //4. boolean delete(String value);
     public boolean delete(String value) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i]==value) {
+            if (array[i].equals(value)) {
                 array[i] = null;
             }
         }
