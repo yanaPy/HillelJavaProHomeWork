@@ -26,19 +26,39 @@ public class CollectionService implements Collection {
     @Override
     public boolean add(String o) {
         modCount++;
-        String[] newArray = new String[elementData.length + 1];
+        String[] newArray;
+        if ((elementData[elementData.length - 1]) == null) {
+            elementData[elementData.length - 1] = o;
 
-        for (int i = 0, j = 0; i < newArray.length; i++, j++) {
-            if (i != newArray.length - 1) {
-                newArray[j] = elementData[i];
-            } else {
-                newArray[newArray.length - 1] = o;
+        } else {
+            newArray = new String[elementData.length + 1];
+            for (int i = 0, j = 0; i < elementData.length; i++, j++) {
+                if (i != elementData.length - 1) {
+                    elementData[j] = elementData[i];
+                } else {
+                    newArray[newArray.length - 1] = o;
+                }
             }
+            elementData = newArray;
         }
-        elementData = newArray;
+//        if (elementData[elementData.length - 1] != null) {
+//            newArray = new String[elementData.length + 1];
+//        } else newArray = elementData;
+//
+//        for (int i = 0, j = 0; i < elementData.length; i++, j++) {
+//            if (i != elementData.length - 1) {
+//                elementData[j] = elementData[i];
+//            } else {
+//                newArray[newArray.length - 1] = o;
+//            }
+//        }
+//        elementData = newArray;
         size++;
         return true;
     }
+
+//    elementData[elementData.length - 1] = o;
+//    size++;
 
     @Override
     public boolean add(int index, String o) {

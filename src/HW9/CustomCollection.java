@@ -1,9 +1,10 @@
 package HW9;
 
 public interface  CustomCollection<String> {
+
     boolean add(String str);
 
-    boolean addAll(Collection strColl);
+    boolean addAll(CustomCollection strColl);
 
     boolean delete (int index);
 
