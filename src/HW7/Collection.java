@@ -7,10 +7,12 @@ public class Collection {
     String[] array;
 
     private int modCount = 0;
-
+    int size;
     public Collection(String[] array) {
         this.array = array;
     }
+
+
 
     //    1. boolean add(int index, String value);
     public boolean add(int index, String value) {
@@ -29,6 +31,7 @@ public class Collection {
             }
         }
         array = newArray;
+        size++;
         return true;
     }
 
@@ -46,6 +49,7 @@ public class Collection {
             }
         }
         array = newArray;
+        size++;
         return true;
     }
 
@@ -88,5 +92,9 @@ public class Collection {
         return "Collection{" +
                 "array=" + Arrays.toString(array) +
                 '}';
+    }
+
+    public int size() {
+        return size;
     }
 }

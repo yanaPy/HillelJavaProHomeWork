@@ -32,33 +32,19 @@ public class CollectionService implements Collection {
 
         } else {
             newArray = new String[elementData.length + 1];
-            for (int i = 0, j = 0; i < elementData.length; i++, j++) {
-                if (i != elementData.length - 1) {
-                    elementData[j] = elementData[i];
+            for (int i = 0, j = 0; i < newArray.length; i++, j++) {
+                if (i != newArray.length - 1) {
+                    newArray[j] = elementData[i];
                 } else {
                     newArray[newArray.length - 1] = o;
                 }
             }
             elementData = newArray;
         }
-//        if (elementData[elementData.length - 1] != null) {
-//            newArray = new String[elementData.length + 1];
-//        } else newArray = elementData;
-//
-//        for (int i = 0, j = 0; i < elementData.length; i++, j++) {
-//            if (i != elementData.length - 1) {
-//                elementData[j] = elementData[i];
-//            } else {
-//                newArray[newArray.length - 1] = o;
-//            }
-//        }
-//        elementData = newArray;
         size++;
         return true;
     }
 
-//    elementData[elementData.length - 1] = o;
-//    size++;
 
     @Override
     public boolean add(int index, String o) {
@@ -97,7 +83,7 @@ public class CollectionService implements Collection {
     @Override
     public boolean delete(String o) {
         for (int i = 0; i < elementData.length; i++) {
-            if (elementData[i] == o) {
+            if (Objects.equals(elementData[i], o)) {
                 elementData[i] = null;
                 size--;
             }
@@ -114,14 +100,13 @@ public class CollectionService implements Collection {
     public boolean contain(String o) {
         boolean contain = false;
         if (o != null) {
-            for (int i = 0; i < elementData.length; i++) {
-                if (elementData[i] != null && elementData[i].contains(o)) {
+            for (String elementDatum : elementData) {
+                if (elementDatum != null && elementDatum.contains(o)) {
                     contain = true;
                 } else contain = false;
             }
         }
         return contain;
-
     }
 
 

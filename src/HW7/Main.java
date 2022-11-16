@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
         String[] array = new String[]{"alal", "blblb", null, "glblbl"};
-
         Collection collection = new Collection(array);
 
         while (true) {

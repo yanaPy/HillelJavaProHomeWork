@@ -1,14 +1,17 @@
 package HW9;
 
+import HW7.Collection;
+
+
 public interface  CustomCollection<String> {
 
     boolean add(String str);
 
-    boolean addAll(CustomCollection strColl);
+    boolean addAll(Collection strColl);
 
-    boolean delete (int index);
+    boolean delete(int index);
 
-    boolean delete (String str);
+    boolean delete(String str);
 
     String get(int index);
 

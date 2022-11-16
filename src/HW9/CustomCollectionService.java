@@ -1,126 +1,98 @@
 package HW9;
 
-import java.util.Arrays;
+import HW7.Collection;
 
-public class CustomCollectionService<String> implements CustomCollection<String> {
+public class CustomCollectionService implements CustomCollection<String> {
 
-    private final int DEFAULT_CAPACITY = 10;
-    Object[] elementData;
-    private int customCapacity;
-
+    private Node<String> head;
     private int size;
-    private int modCount = 0;
-
-    private CustomCollectionService.Node<String> first;
-    private CustomCollectionService.Node<String> last;
 
     public CustomCollectionService() {
-        this.last = new Node<String>(null, first, null);
-        this.first = new Node<String>(null, null, last);
+        this.head = null;
+        this.size = 0;
     }
 
     @Override
     public boolean add(String str) {
-//        lastReturned = null;
-//        if (next == null)
-//            linkLast(e);
-//        else
-//            linkBefore(e, next);
-//        nextIndex++;
-//        expectedModCount++;
-
-        modCount++;
-        Object[] newArray = new Object[elementData.length + 1];
-
-        for (int i = 0, j = 0; i < newArray.length; i++, j++) {
-            if (i != newArray.length - 1) {
-                newArray[j] = elementData[i];
-            } else {
-                newArray[newArray.length - 1] = str;
-            }
+        if (this.head == null) {
+            this.head = new Node<>(str);
+        } else {
+            addNext(this.head, str);
         }
-        elementData = newArray;
-        size++;
+        this.size++;
         return true;
     }
 
     @Override
-    public boolean addAll(CustomCollection strColl) {
-//        Object[] a = strColl.toArray();
-//        Object[] newArr = strColl.toString();
-//
-//        modCount++;
-//        int numNew = newArr.length;
-//        if (numNew == 0)
-//            return false;
-//        Object[] elementData;
-//        final int s;
-//        if (numNew > (elementData = this.elementData).length - (s = size))
-//            elementData = grow(s + numNew);
-//        System.arraycopy(new, 0, elementData, s, numNew);
-//        size = s + numNew;
-        return true;    }
+    public boolean addAll(Collection strColl) {
+        for (int i = 0; i < strColl.size(); i++) {
+            String data = strColl.get(i);
+            add(data);
+        }
+        return true;
+    }
 
     @Override
     public boolean delete(int index) {
-        modCount++;
-        Object[] newArray = new Object[elementData.length - 1];
-        if (index >= elementData.length) {
-            System.out.println("Array size: " + elementData.length + " but you want to delete " + index + " element");
-            return false;
+        if (index > this.size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (0 == index) {
+            this.head = this.head.getNext();
         } else {
-            for (int i = 0, j = 0; i < newArray.length; i++, j++) {
-                if (i == index) {
-                    i++;
-                }
-                newArray[j] = elementData[i];
+            Node<String> parentNode = getNode(index - 1);
+            if (index == this.size) {
+                parentNode.setNext(null);
+            } else {
+                Node<String> nextNode = getNode(index + 1);
+                parentNode.setNext(nextNode);
             }
         }
-        elementData = newArray;
+        this.size--;
         return true;
     }
 
     @Override
     public boolean delete(String str) {
-        for (int i = 0; i < elementData.length; i++) {
-            if (elementData[i] == str) {
-                elementData[i] = null;
-                size--;
-            }
+        int nodeIndex = getNodeIndex(str);
+        if (nodeIndex < 0) {
+            throw new IndexOutOfBoundsException();
         }
-        return true;
+        return delete(nodeIndex);
     }
 
     @Override
     public String get(int index) {
-        return (String) elementData[index];
+        if (index > this.size) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node<String> node = getNode(index);
+        return node.getElement();
     }
 
     @Override
     public boolean contains(String str) {
         boolean contain = false;
         if (str != null) {
-            for (int i = 0; i < elementData.length; i++) {
-                if (elementData[i] != null && elementData[i] == (str)) {
-                    contain = true;
-                } else contain = false;
-            }
+            getNodeIndex(str);
+            contain = true;
         }
         return contain;
     }
 
     @Override
     public boolean clear() {
-        modCount++;
-        for (int i = 0; i < elementData.length; i++)
-            elementData[i] = null;
-        size = 0;
+        if (this.size == 0) {
+            return false;
+        }
+        this.head = null;
+        this.size = 0;
         return true;
     }
 
     @Override
     public int size() {
-        return size;
+        return this.size;
     }
 
     @Override
@@ -128,49 +100,61 @@ public class CustomCollectionService<String> implements CustomCollection<String>
         return true;
     }
 
-    @Override
-    public java.lang.String toString() {
-        return "CustomCollectionService{" +
-                "elementData=" + Arrays.toString(elementData) +
-                ", first=" + first +
-                ", last=" + last +
-                '}';
-    }
 
-    //
-//    @Override
-//    public boolean addAll(Collection strColl) {
-////        Object[] a = strColl.toArray();
-//        Object[] a = strColl[];
-//
-//        modCount++;
-//        int numNew = a.length;
-//        if (numNew == 0)
-//            return false;
-//        Object[] elementData;
-//        final int s;
-//        if (numNew > (elementData = this.elementData).length - (s = size))
-//            elementData = grow(s + numNew);
-//        System.arraycopy(a, 0, elementData, s, numNew);
-//        size = s + numNew;
-//        return true;
-//    }
-//
+    private class Node<T> {
+        private final String element;
+        private Node<String> next;
 
-
-    private static class Node<String> {
-        private String current;
-
-        private CustomCollectionService.Node<String> next;
-        private CustomCollectionService.Node<String> prev;
-
-        private int nextIndex;
-
-        private Node(String current, CustomCollectionService.Node<String> prev, CustomCollectionService.Node<String> next) {
-            this.current = current;
-            this.next = next;
-            this.prev = prev;
+        public Node(String element) {
+            this.element = element;
         }
 
+        public String getElement() {
+            return element;
+        }
+
+        public void setNext(Node<String> next) {
+            this.next = next;
+        }
+
+        public Node<String> getNext() {
+            return next;
+        }
+    }
+
+
+    private void addNext(Node<String> head, String str) {
+        if (null == head.getNext()) {
+            head.setNext(new Node<>(str));
+        } else {
+            addNext(head.getNext(), str);
+        }
+    }
+
+
+    private Node<String> getNode(int index) {
+        if (index > this.size) {
+            throw new IndexOutOfBoundsException();
+        }
+        int currentIndex = 0;
+        Node<String> currentNode = this.head;
+        while (index > currentIndex && null != currentNode) {
+            currentNode = currentNode.getNext();
+            currentIndex++;
+        }
+        return currentNode;
+    }
+
+    private int getNodeIndex(String str) {
+        Node<String> currentNode = this.head;
+        int currentIndex = 0;
+        while (null != currentNode) {
+            if (null != currentNode.getElement() && currentNode.getElement().equalsIgnoreCase(str)) {
+                return currentIndex;
+            }
+            currentNode = currentNode.getNext();
+            currentIndex++;
+        }
+        return -1;
     }
 }
