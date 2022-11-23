@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         Collection collection = new Collection();
-        
+
         while (true) {
             System.out.println("Choose number for operations :");
             System.out.println("1 - add(int index, String value)");
