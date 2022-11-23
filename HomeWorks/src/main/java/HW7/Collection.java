@@ -29,22 +29,27 @@ public class Collection {
     //    1. boolean add(int index, String value);
     public boolean add(int index, String value) {
         modCount++;
+        Boolean isAdded = false;
         String[] newArray = new String[array.length + 1];
         if (index > array.length) {
             System.out.println("Array size: " + array.length + " but you want to add " + index + " element");
-            return false;
+        } else if (array.length == 0) {
+            newArray[0] = value;
+            isAdded = true;
+            size++;
         } else {
             for (int i = 0, j = 0; i < array.length; i++, j++) {
-                if (i == index) {
+                if (j == index) {
                     newArray[j] = value;
                     j++;
                 }
                 newArray[j] = array[i];
             }
+            isAdded = true;
+            size++;
         }
         array = newArray;
-        size++;
-        return true;
+        return isAdded;
     }
 
 
@@ -67,11 +72,11 @@ public class Collection {
 
     //    3. boolean delete(int index);
     public boolean delete(int index) {
+        Boolean isDeleted = false;
         modCount++;
         String[] newArray = new String[array.length - 1];
         if (index >= array.length) {
             System.out.println("Array size: " + array.length + " but you want to delete " + index + " element");
-            return false;
         } else {
             for (int i = 0, j = 0; i < newArray.length; i++, j++) {
                 if (i == index) {
@@ -80,23 +85,24 @@ public class Collection {
                 newArray[j] = array[i];
             }
             size--;
+            isDeleted = true;
         }
         array = newArray;
-        return true;
+        return isDeleted;
     }
 
     //4. boolean delete(String value);
     public boolean delete(String value) {
-        Boolean isDeleted=false;
+        Boolean isDeleted = false;
         for (int i = 0; i < array.length; i++) {
-            if (array[i].equals(value)) {
+            if (array[i] == value) {
                 array[i] = null;
-                isDeleted=true;
+                isDeleted = true;
 
+                size--;
             }
 
         }
-        size--;
         return isDeleted;
     }
 

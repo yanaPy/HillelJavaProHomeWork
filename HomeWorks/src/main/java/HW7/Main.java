@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String[] array = new String[]{"alal", "blblb", null, "glblbl"};
-        Collection collection = new Collection(array);
-
+        Collection collection = new Collection();
+        
         while (true) {
             System.out.println("Choose number for operations :");
             System.out.println("1 - add(int index, String value)");
