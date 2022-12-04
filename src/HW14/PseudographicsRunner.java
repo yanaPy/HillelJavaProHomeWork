@@ -1,29 +1,29 @@
 package HW14;
 
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class PseudographicsRunner {
-    public static void main(String [] args) {
-        Pseudographics[] numbs = Pseudographics.createPseudographics(
-                "  @@      @@     @@@@@   @@@@@  @       @@@@@@@  @@@@@  @@@@@@@  @@@@@   @@@@@ ",
-                " @   @    @@    @     @ @     @ @    @  @       @     @ @    @  @     @ @     @",
-                "@     @  @ @          @       @ @    @  @       @           @   @     @ @     @",
-                "@     @    @     @@@@@   @@@@@  @    @  @@@@@@  @@@@@@     @     @@@@@   @@@@@@",
-                "@     @    @    @             @ @@@@@@@       @ @     @   @     @     @       @",
-                " @   @     @    @       @     @      @  @     @ @     @   @     @     @ @     @",
-                "  @@@    @@@@@  @@@@@@@  @@@@@       @   @@@@@   @@@@@    @      @@@@@   @@@@@@ "
-        );
+    public static void main(String[] args) {
 
+        while (true) {
+            System.out.println("Enter numb(s) from 0 to 10. Use space.");
 
+            Scanner scanner = new Scanner(System.in);
+            String str = scanner.nextLine();
 
-        int height = numbs[0].lines.length;
+            if (new Scanner(str).hasNextInt()) {
+                int[] num = Arrays.stream(str.split(" "))
+                        .mapToInt(Integer::parseInt).toArray();
+                Numbs numbs = new Numbs();
+                numbs.printNumbs(num);
 
-        int[] num = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            } else{System.out.println("Error! Only numbers available.");}
 
-        for (int i = 0; i < height; i++) {
-            for (int numb : num) {
-                System.out.print(numbs[numb].lines[i] + " ");
-            }
-            System.out.println();
+            System.out.println("You want to continue? Enter y/n");
+            String strNext = scanner.nextLine();
+            if (strNext.equals("n")) break;
         }
     }
 }
