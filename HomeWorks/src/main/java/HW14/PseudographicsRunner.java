@@ -8,7 +8,7 @@ public class PseudographicsRunner {
     public static void main(String[] args) {
 
         while (true) {
-            System.out.println("Enter numb(s) from 0 to 10. Use space.");
+            System.out.println("Enter numb(s) from 0 to 9. Use space.");
 
             Scanner scanner = new Scanner(System.in);
             String str = scanner.nextLine();

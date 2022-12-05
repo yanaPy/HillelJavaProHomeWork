@@ -7,7 +7,6 @@ public class Pseudographics {
     String[] lines;
 
 
-
     public Pseudographics(String... lines) {
         this.lines = lines;
     }

@@ -1,6 +1,5 @@
 package HW14;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,13 +7,13 @@ public class PseudographicsRunner {
     public static void main(String[] args) {
 
         while (true) {
-            System.out.println("Enter numb(s) from 0 to 10. Use space.");
+            System.out.println("Enter numb(s) from 0 to 9. Don`t use space.");
 
             Scanner scanner = new Scanner(System.in);
             String str = scanner.nextLine();
 
             if (new Scanner(str).hasNextInt()) {
-                int[] num = Arrays.stream(str.split(" "))
+                int[] num = Arrays.stream(str.split(""))
                         .mapToInt(Integer::parseInt).toArray();
                 Numbs numbs = new Numbs();
                 numbs.printNumbs(num);
