@@ -1,11 +1,5 @@
 package HW15;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.util.Scanner;
-
 public class Game {
     static int playedGames = 0;
 
@@ -27,7 +21,7 @@ public class Game {
         playedGames++;
     }
 
-    public static void playStop() {
+    public static void stopPlay() {
 
         System.out.println("You played "+playedGames+" game(s).");
         System.out.println("Computer wins "+compWins+" game(s).");

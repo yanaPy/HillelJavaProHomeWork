@@ -24,14 +24,14 @@ public class GamePlayer {
         while (Game.playedGames != numberOfGames) {
             Game.play();
             if (Game.playedGames == numberOfGames) {
-                Game.playStop();
+                Game.stopPlay();
             } else {
                 System.out.println(player.getName() + ", you played " + Game.getPlayedGames() + " game(s). " +
                         "Continue? y/n");
                 Scanner scanner1 = new Scanner(System.in);
                 String isContinue = scanner1.nextLine();
                 if (isContinue.equals("n")) {
-                    Game.playStop();
+                    Game.stopPlay();
                     break;
                 }
             }
