@@ -14,7 +14,7 @@ public class PseudographicsRunner {
             String str = scanner.nextLine();
 
             if (new Scanner(str).hasNextInt()) {
-                int[] num = Arrays.stream(str.split(" "))
+                int[] num = Arrays.stream(str.split(""))
                         .mapToInt(Integer::parseInt).toArray();
                 Numbs numbs = new Numbs();
                 numbs.printNumbs(num);
