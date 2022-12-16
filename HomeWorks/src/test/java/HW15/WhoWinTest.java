@@ -13,13 +13,13 @@ class WhoWinTest extends WhoWin {
         Assertions.assertEquals(0,Game.getCompWins());
         Assertions.assertEquals(0,Game.getPlayerWins());
 
-        WhoWin.getWinner(SCISSORS,STONE);
+        WhoWin.getWinner(SCISSORS,ROCK);
         Assertions.assertEquals(1,Game.getCompWins());
         Assertions.assertEquals(0,Game.getPlayerWins());
 
         Game.setCompWins(0);
 
-        WhoWin.getWinner(PAPER,STONE);
+        WhoWin.getWinner(PAPER,ROCK);
         Assertions.assertEquals(0,Game.getCompWins());
         Assertions.assertEquals(1,Game.getPlayerWins());
     }

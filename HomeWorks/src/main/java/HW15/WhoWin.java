@@ -8,8 +8,8 @@ public class WhoWin {
 
         if (handComp == handPlayer) {
             System.out.println("Draw");
-        } else if (handPlayer == SCISSORS && handComp == STONE
-                || handPlayer == PAPER && handComp == SCISSORS || handPlayer == STONE && handComp == PAPER) {
+        } else if (handPlayer == SCISSORS && handComp == ROCK
+                || handPlayer == PAPER && handComp == SCISSORS || handPlayer == ROCK && handComp == PAPER) {
             System.out.println("Win computer");
             Game.setCompWins(Game.getCompWins()+1);
         } else {

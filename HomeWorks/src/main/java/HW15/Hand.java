@@ -1,7 +1,7 @@
 package HW15;
 
 public enum Hand {
-    STONE,
+    ROCK,
     SCISSORS,
     PAPER
  }
