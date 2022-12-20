@@ -32,7 +32,7 @@ public class Log {
     static OutputStream outputStream;
     static {
         try {
-            outputStream = new FileOutputStream(String.valueOf(path), false);
+            outputStream = new FileOutputStream(String.valueOf(path), true);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -41,7 +41,7 @@ public class Log {
     static OutputStream outputStreamResult;
     static {
         try {
-            outputStreamResult = new FileOutputStream(String.valueOf(pathForResult), false);
+            outputStreamResult = new FileOutputStream(String.valueOf(pathForResult), true);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -59,6 +59,9 @@ public class Log {
 
     @SneakyThrows
     static void close(){
+        outputStream.write(("-------------------").getBytes());
+        outputStreamResult.write(("-------------------").getBytes());
+
         outputStream.close();
         outputStreamResult.close();
     }
