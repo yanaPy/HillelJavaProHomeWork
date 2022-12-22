@@ -38,9 +38,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        Converter.fileConvert(Path.of("/Users/yana/IdeaProjects/HillelJavaProHomeWork/file.yaml"));
+//        System.out.println(Converter2.getFilePath());
+//        System.out.println(Converter2.isYaml("/Users/yana/IdeaProjects/HillelJavaProHomeWork/logFile.yaml"));
 
-        Converter2.fileConvert();
+//        System.out.println(Converter2.getFileValidPath(Converter2.getFilePath()));
+
+
+        Converter.fileConvert(Path.of("/Users/yana/IdeaProjects/HillelJavaProHomeWork/file.yaml"));
+
+        Converter.fileConvert(Path.of("/Users/yana/IdeaProjects/HillelJavaProHomeWork/MOCK_DATA.json"));
 
 //
 //        List<String> getFilePath(Path path);
