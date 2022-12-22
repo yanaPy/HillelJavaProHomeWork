@@ -25,22 +25,22 @@ public class Log {
         String log = oldName + " -> " + newName + "; " + timeConvert + "c; " + oldSize + " -> " + newSize;
         File file = new File(path + "/result.log");
 
-        OutputStream outputStream = new FileOutputStream(file.getPath(), false);
         try {
+            OutputStream outputStream = new FileOutputStream(file.getPath(), false);
             outputStream.write(log.getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    void log(Path path, String result) throws FileNotFoundException {
+    public void log(Path path, String result){
         File file = new File(path + "/result.log");
 
         try {
             OutputStream outputStream = new FileOutputStream(file.getPath(), false);
             outputStream.write(result.getBytes());
         } catch (IOException e) {
-            System.out.println("path not found");
+            System.out.println("Path not found");
         }
     }
 }
