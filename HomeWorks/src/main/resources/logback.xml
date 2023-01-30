@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 <!--    <include resource="org/springframework/boot/logging/logback/base.xml"/>-->
-    <property name="LOG_FOLDER" value="/Users/yana/IdeaProjects/HillelJavaProHomeWork/HomeWorks/logsHW21"/>
+    <property name="LOG_FOLDER" value="/logsHW22"/>
 
     <appender name="result_log"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -36,7 +36,7 @@
         </filter>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_FOLDER}/live/archive/result-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <fileNamePattern>${LOG_FOLDER}/courseOfGame/archive/result-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- or whenever the file size reaches 10MB -->

@@ -138,7 +138,7 @@
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>HW21.GamePlayer</mainClass>
+                                <mainClass>HW22.GamePlayer</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
@@ -179,7 +179,7 @@
                     <configuration>
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                        <mainClass>HW21.GamePlayer</mainClass>
+                        <mainClass>HW22.GamePlayer</mainClass>
                         </transformer>
                     </transformers>
                     </configuration>
