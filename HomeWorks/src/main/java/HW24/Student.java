@@ -13,8 +13,6 @@ import javax.persistence.*;
 @Table(name = "students")
 public class Student {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id", nullable = false, columnDefinition = "varchar(64)", insertable = true)

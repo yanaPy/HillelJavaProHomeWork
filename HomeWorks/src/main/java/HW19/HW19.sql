@@ -7,12 +7,18 @@ CREATE TABLE departments (
     CONSTRAINT departments_pk PRIMARY KEY (department_id)
 );
 
+ALTER TABLE departments AUTO_INCREMENT = 1000;
+
+
 -- Table: groups
 CREATE TABLE groupss (
     group_id varchar(64) NOT NULL,
     `groupp` int NOT NULL,
     CONSTRAINT groups_pk PRIMARY KEY (group_id)
 );
+
+ALTER TABLE groupss AUTO_INCREMENT = 1000;
+
 
 -- Table: lessons
 CREATE TABLE lessons (
@@ -25,6 +31,9 @@ CREATE TABLE lessons (
     CONSTRAINT lessons_pk PRIMARY KEY (lesson_id)
 );
 
+ALTER TABLE lessons AUTO_INCREMENT = 1000;
+
+
 -- Table: scores
 CREATE TABLE scores (
     scores_id int NOT NULL,
@@ -32,6 +41,9 @@ CREATE TABLE scores (
     lesson varchar(64) NOT NULL,
     score varchar(64) NOT NULL
 );
+
+
+ALTER TABLE scores AUTO_INCREMENT = 1000;
 
 -- Table: students
 CREATE TABLE students (
@@ -43,6 +55,9 @@ CREATE TABLE students (
     CONSTRAINT students_pk PRIMARY KEY (student_id)
 );
 
+ALTER TABLE students AUTO_INCREMENT = 1000;
+
+
 -- Table: teachers
 CREATE TABLE teachers (
     teacher_id varchar(64) NOT NULL,
@@ -50,6 +65,9 @@ CREATE TABLE teachers (
     department varchar(64) NOT NULL,
     CONSTRAINT teachers_pk PRIMARY KEY (teacher_id)
 );
+
+ALTER TABLE teachers AUTO_INCREMENT = 1000;
+
 
 -- foreign keys
 -- Reference: departments_teachers (table: teachers)
