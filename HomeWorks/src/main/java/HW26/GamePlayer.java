@@ -26,6 +26,7 @@ public class GamePlayer {
         if (args.length != 0) {
             locale = new Locale(args[0]);
         }
+        System.out.println("test test test");
 
 //        String val = bundle.getString(key);
 //        I solved my Japanese display problem by:
